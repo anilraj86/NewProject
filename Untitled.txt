@@ -1,0 +1,35 @@
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+
+
+End Sub
+
+
+Sub Fillrows()
+Dim lastrow As Long, docrow As Integer, totalRow As Integer
+
+lastrow = Application.WorksheetFunction.CountA(Sheet2.Range("C:C"))
+
+Sheet2.Activate
+
+ Dim ws As New Worksheet
+ 
+ Dim custname As String
+
+MsgBox lastrow
+
+For i = 1 To 3456
+
+If Cells(i, 3) = "Document date" Then
+
+'MsgBox Cells(i, 3)
+custname = Cells(i - 3, 6)
+
+ElseIf Cells(i, 3) = "Total" Then
+ custname = ""
+End If
+
+Cells(i, 1) = custname
+
+Next
+End Sub
